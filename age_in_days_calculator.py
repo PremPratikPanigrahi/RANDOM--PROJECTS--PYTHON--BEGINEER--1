@@ -24,7 +24,8 @@ while loop_start==0:
   while im not in check_month:
     im=(input(f"Enter your month of birth(in letters with first letter capital): "))
   id=int(input(f"Enter your day of birth: "))
-  if iy%4==0:dict_date_1["February"]=29
+  if (iy%4)==0 and (iy%100)!=0:dict_date_1["February"]=29
+  elif (iy%400)==0:dict_date_1["February"]=29
   while "a":
    while id<1:
     id=int(input("\nDay cannot be less than 1\nRe-enter the day: "))
@@ -39,7 +40,8 @@ while loop_start==0:
    cm=(input(f"Enter current month(in letters with first letter capital): "))
   cd=int(input(f"Enter current day: "))
 
-  if cy%4==0:dict_date_1["February"]=29
+  if (cy%4)==0 and (cy%100)!=0:dict_date_1["February"]=29
+  elif (cy%400)==0:dict_date_1["February"]=29
   else:dict_date_1["February"]=28
   
   while "a":
@@ -50,7 +52,7 @@ while loop_start==0:
    if cd>=1 and  dict_date_1[cm]>=cd:
     break
 
- except ValueError or TypeError:
+ except (ValueError,TypeError):
   print(f"Error occured .You have to re-enter everything\nRestarting...\n")
   continue
 
@@ -77,7 +79,7 @@ while loop_start==0:
 
  fd=cd-id
 
- if (cy%4)==0:
+ if (cy%4)==0 and (cy%100)!=0:
   dict_month_leap1={
    "January":0,
    "February":31,
@@ -94,7 +96,24 @@ while loop_start==0:
    }
   m_1=dict_month_leap1[cm]
 
- elif (cy%4)!=0:
+ elif (cy%400)==0:
+  dict_month_leap1={
+   "January":0,
+   "February":31,
+   "March":60,
+   "April":91,
+   "May":121,
+   "June":152,
+   "July":182,
+   "August":213,
+   "September":244,
+   "October":274,
+   "November":305,
+   "December":335
+   }
+  m_1=dict_month_leap1[cm]
+
+ else:
   dict_month_leap1={
    "January":0,
    "February":31,
@@ -112,7 +131,7 @@ while loop_start==0:
   m_1=dict_month_leap1[cm]
 
 
- if (iy%4)==0:
+ if (iy%4)==0 and (iy%100)!=0:
   dict_month_leap2={
    "January":0,
    "February":31,
@@ -129,7 +148,24 @@ while loop_start==0:
    }
   m_2=dict_month_leap2[im]
 
- elif (iy%4)!=0:
+ elif (iy%400)==0:
+  dict_month_leap2={
+   "January":0,
+   "February":31,
+   "March":60,
+   "April":91,
+   "May":121,
+   "June":152,
+   "July":182,
+   "August":213,
+   "September":244,
+   "October":274,
+   "November":305,
+   "December":335
+   }
+  m_2=dict_month_leap2[im]
+
+ else:
   dict_month_leap2={
    "January":0,
    "February":31,
