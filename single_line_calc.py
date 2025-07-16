@@ -2,7 +2,7 @@ print(f"You're currently seeing the best calculator of the world\n\nUse the foll
 a=0
 while a == 0:
  try:
-     d = int(eval(input("Enter: ")))
+     d = float(eval(input("Enter: ")))
      print(f"Answer = {d}")
  except Exception as e:
      print(f"Error: {e}")
